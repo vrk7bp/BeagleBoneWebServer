@@ -15,4 +15,13 @@ So with this, I decided now would be a good time to update/clean flash my Beagle
 To do this, I used the 'Update Image' section from http://192.168.7.2/Support/BoneScript/updates/, which is the local server you can hit when your
 BeagleBone is plugged in via USB. At a high-level, I...
 
+	a) Downloaded the latest Debian image to my Windows PC
+	b) Used 7-zip to decompress the file
+	c) Grabbed a MicroSD Card and plugged into my PC using a MicroSD to SD Card converter
+	d) Downloaded a program called Win32DiskImager to put this Debian Image on the MicroSD in a "bootable" format.
+	e) Plugged MicroSD card in Beaglebone and rebooted it in "Boot" mode.
+
+2) Putting an Apache WebServer on the BeagleBone Black
+
+
 
