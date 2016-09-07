@@ -108,3 +108,8 @@ your BeagleBone. If you run '/var/www' you will find the default web-page for th
 can grab using 'ip addr show') in any broswer on your local network should navigate to this web page.
 
 4) Dealing with the local IP Address
+
+
+https://www.youtube.com/watch?annotation_id=ca149afa-f888-405d-a68b-2018ea38d8f1&feature=cards&src_vid=Vm-y-1HZSPo&v=uifOnB3ihKE
+
+
