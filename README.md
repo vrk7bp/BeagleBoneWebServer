@@ -42,7 +42,47 @@ the hope of coming back later and figuring out what was wrong). There are a coup
 
 After playing around for a little while, I figured it would be easier to simply move forward booting from the microSD card.
 
-2) Putting an Apache WebServer on the BeagleBone Black
+2) Setting up the BeagleBone Securely
 
+Since we are essentially starting with a clean Debian OS image, its worth setting up a couple of things to make the BeagleBone more secure. The end
+goal is to make this a Web Server to host my personal site (among other things), so therefore its probably worth adding some security measures to
+make it hard to access. There are a couple of things that I did...
+
+a) Setup a default user aside from Root
+
+When the Debian image is first booted, all it has is a root user. This can be dangerous, since the root user has access to the entire system. In order
+to make things a bit more secure, I created a default user using the adduser command. I also made sure to add this user to the "sudo" list so that
+it is able to use the sudo command. This prevents me from having to login to the root user whenever I need to do more priviledged operations.
+
+b) Setup different passwords for both users.
+
+Using the passwd command, I set two different passwords for the two users. This way whenever someone tries to SSH into the server, they're required
+to input the correct password. It is important to make sure that these passwords are different in order to ensure better protection.
+
+c) Making sudo password the root password
+
+By default, once the default user is added to the "sudo" list, the password that this user is required to input is its own. In other words, if the password
+for the default user is compromised (as opposed to the root user), then this user essentially has root capabilities. Instead you can configure things
+so that the root password is required to run a sudo command, as opposed to the default user's password. This is done by running the 'visudo' command
+as the root user, and adding "Defaults rootpw" under the Defaults.
+
+
+d) Add public-key SSH capabilities
+
+Followed instructions at http://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/. My understanding is that there are two things that you
+can potentially do here. You can create a private key on your server, and share the public key out with any computers you may login from. It is highly
+recommended that you add a Passphrase for the Public/Private Keys if you do this, as anyone with the Public Key (which can likely be easily compromised)
+can login to your machine.
+
+The other option is to follow the instructions on the page, and instead have the private key on the local machine you login to the server from and
+have the server hold the public key. This means that the only way to login without the password is via a set of machines you already have setup with
+this Public/Private relationship. As of now, this means that you can also try SSHing into the server with the users password, although there are
+bound to be settings to change this.
+
+Its definitely worth noting that I am far from a security expert. There is bound to be a load of other security measures that I should take in order
+to prevent unauthorized access to this server. However these are the simple measures that I know off the top of my head. If any other suggestions pop-up
+I'd be happy to research them/implement them on this Debian image.
+
+3) Add Apache Server to BeagleBone
 
 
