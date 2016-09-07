@@ -83,6 +83,28 @@ Its definitely worth noting that I am far from a security expert. There is bound
 to prevent unauthorized access to this server. However these are the simple measures that I know off the top of my head. If any other suggestions pop-up
 I'd be happy to research them/implement them on this Debian image.
 
-3) Add Apache Server to BeagleBone
+3) Add Web Server to BeagleBone
 
+After exploring a couple of tutorials, it looked like the lighttpd web server was the best option for my BeagleBone Black. Unlike Apache, lighttpd
+is an asynchronous server, meaning that it is event-driven and handles requests with a limited amount of threads. Although my super simple server
+is unlikely to hit massive loads, this asynchronous server tends to do better under high-load situations.
 
+Given that we are dealing with a relatively "fresh" image of Debian, there are a couple of default services that are running on the BBB that we
+have to disable. Disabling these services does two things for us; first it frees up memory and CPU cycles that may become critical under higher loads,
+and second it frees up ports that are needed for the web server to run. The following commands should be run using a root account...
+
+	a) systemctl disable cloud9.service
+	b) systemctl disable gateone.service
+	c) systemctl disable bonescript.service
+	d) systemctl disable bonescript.socket
+	e) systemctl disable bonescript-autorun.service
+	f) systemctl disable avahi-daemon.service
+	g) systemctl disable gdm.service
+	h) systemctl disable mpd.service
+	i) shutdown -r now (this command restarts the Beaglebone in order to activate the service disables)
+
+After the BeagleBone is back on, you're ready to grab the lighttpd web-server. Simply run 'sudo apt-get install lighttpd' to get the web-server on
+your BeagleBone. If you run '/var/www' you will find the default web-page for the server. Navigating to the IP Address of your BeagleBone (which you
+can grab using 'ip addr show') in any broswer on your local network should navigate to this web page.
+
+4) Dealing with the local IP Address
