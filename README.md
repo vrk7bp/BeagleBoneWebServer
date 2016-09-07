@@ -21,6 +21,8 @@ BeagleBone is plugged in via USB. At a high-level, I...
 	d) Downloaded a program called Win32DiskImager to put this Debian Image on the MicroSD in a "bootable" format.
 	e) Plugged MicroSD card in Beaglebone and rebooted it in "Boot" mode.
 
+Key: Once your MicroSD card has been written to, make sure to edit the /boot/uEnv.txt file so that the '#' is removed from the 'cmdline=init=/opt/scripts/tools/eMMC/init-eMMC-flasher-v3.sh' line. 
+
 2) Putting an Apache WebServer on the BeagleBone Black
 
 
