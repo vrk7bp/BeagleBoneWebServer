@@ -174,5 +174,19 @@ And there you have it folks, pretty clear, step-by-step instructions on building
 the process of porting my personal website from Azure to my local BeagleBone web server. I'll add a walkthrough below of that process, but probably
 not as in-depth detail as I went into above.
 
+A) Setting up a DDNS provider
+
+Every once in a while, your external IP Address (the one that is "public facing") will be renewed by your ISP. There is never a clear time table of
+when this happens, and this can get annoying as the host of a web-server or constant SSH-ing. In order to work around this, there is something called
+DDNS (Dyncamic Domain Name Service) providers. These providers give you a "static" domain name that will be tied to your external IP Address. However,
+what is cool is that these folks "re-adjust" this pointer whenever your external IP Address is updated, meaning that you never have to worry about
+IP Addresses changing at bad times. Instead always use/reference the "static" domain name provided by your DDNS provider.
+
+I personally recommend www.noip.com, as they have a free tier that sufficed for me, and were extremely easy to use. After you get a DDNS from them,
+you will have to go to your router to set this up. Its worth noting that not all routers support DDNS, although most of the newer ones should. Setting
+up DDNS on every router is different, and therefore a web search will be useful. My router had a really clear option for setting things up, and it
+took less than 2 minutes (with 1 minute spent re-booting the router). 
+
+
 Thanks for reading folks! Hopefully this proves to be useful for some folks down the road. And if there are any improvements/updates you guys find, just submit a pull request
 and/or log an issue.
