@@ -147,4 +147,32 @@ Once these settings are propagated through your router, you should be good to go
 able to see your currently connected clients. You should be able to find your BeagleBone there with the IP Address you assigned. You may have to unplug
 and replug your BeagleBone's ethernet/power before you see anything.
 
-5) Dealing with a Local IP Address
+5) Connecting to the Rest of the Internet
+
+We've now come to the final step. We will use a concept called Port Forwarding; at a high level, port forwarding is telling your router to re-route 
+to a specific local IP Address when people access the router on a certain port. Given that we setup a static IP Address in the previous step, we
+should now be able to port forward certain incoming calls to our BeagleBone. By default, the router acts as a Firewall preventing outside connections/requests
+from entering into the local network. It isn't until we institute port forwarding that we "open up" the BeagleBone to the rest of the internet.
+
+Instructions for setting up Port Forwarding on your router vary greatly, because of the hundreds of different producers and thousands of different models.
+The easiest thing to do is Google "ROUTER MODEL port forwarding" and you should be able to find instructions to help you set things up. There are some
+things to keep in mind:
+
+	a) Choose the "Port Range" field wisely. The name might be different across routers, but this is the port that incoming calls are going to "connect to" in order to your BeagleBone server. Avoid "famous" ports such as 80 and 22.
+	b) For the "Local Port" field, you'll want to put 80. This is because 80 is the port used for http, and the web server you have on your BeagleBone will default to this port. 
+	c) Understand what you're doing. You are introducing a small hole in the previously solid router firewall. It may become possible for people to exploit this hole.
+
+Once you apply these settings, you should be good to go! Grab your local IP Address (not the 192.168.YYY.YYY) which is represented by your routers
+WAN IP Address. Otherwise you can just type into Google "what is my ip address" to find it. Then go into any brower and type in YOUR.LOCAL.IP.ADDRESS:PORT-RANGE-NUMBER.
+And there you have it, now you have a fully functional web server!
+
+Just to make my machine more robust, I also set-up port forwarding for SSH-ing into the BeagleBone as well. This means I added a new port forwarding
+entry with a different "Port Range" and 22 as "Local Port".
+
+
+And there you have it folks, pretty clear, step-by-step instructions on building your own server from a brand-new BeagleBone Black. I'll now begin
+the process of porting my personal website from Azure to my local BeagleBone web server. I'll add a walkthrough below of that process, but probably
+not as in-depth detail as I went into above.
+
+Thanks for reading folks! Hopefully this proves to be useful for some folks down the road. And if there are any improvements/updates you guys find, just submit a pull request
+and/or log an issue.
