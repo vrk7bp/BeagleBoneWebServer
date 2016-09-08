@@ -107,9 +107,44 @@ After the BeagleBone is back on, you're ready to grab the lighttpd web-server. S
 your BeagleBone. If you run '/var/www' you will find the default web-page for the server. Navigating to the IP Address of your BeagleBone (which you
 can grab using 'ip addr show') in any broswer on your local network should navigate to this web page.
 
-4) Dealing with the local IP Address
+4) Setting a Static IP Address for the BeagleBone
 
+Setting a static IP Address for your BeagleBone is (for most people) a two step process. Changes have to be made to both the BeagleBone and likely
+your local router as well in order to get a static IP address supported.
 
-https://www.youtube.com/watch?annotation_id=ca149afa-f888-405d-a68b-2018ea38d8f1&feature=cards&src_vid=Vm-y-1HZSPo&v=uifOnB3ihKE
+First, on your BeagleBone, run the command `sudo nano /etc/network/interface`. This will allow you to edit the file that describes the network interfaces
+that your system has. You must have root permissions to edit this file, hence the `sudo`. Next, we will focus on editing the `eth0` interface, which
+is the ethernet connection on your board. If you want to edit a different interface (i.e. WiFi), then you can target other interfaces. Under any existing
+interface definitions (represented by a code block with a line starting with `iface`), add the following:
 
+```Linux
+auto eth0
+iface eth0 inet static
+   address IP.Address.You.Want
+   netmask 255.255.255.0
+   gateway Router.LAN.IP.Address
+```
+Finally, restart your BeagleBone.
 
+Lets breakdown this entry step-by-step. `auto eth0` is telling the system to start this interface when the system is booted up. `iface eth0 inet static`
+is telling the system to configure interface eth0 (ethernet) with a static IP Address. `inet` is shorthand for internet. Since we are defining our own
+IP Address here (hence `static`), the next line is denoting this address. `netmask` is always bundled with IP Addresses and denotes the part of the 
+network on the LAN that this BeagleBone is a "part of" (or in other words, what other IP Addresses it can touch). Finally we come to `gateway` which
+is essentially the place you're telling your BeagleBone to send packets with IP Addresses its not familiar with. Therefore, this should be your routers
+LAN IP Address (which is usually `192.168.1.1`)
+
+Now that you've made the necessary changes in the BeagleBone, chances are you're going to have to make some changes in your router too. It is highly
+likely that your router is using the DHCP protocol to assign IP Addresses to your devices (DHCP at a high level is the way that your device gets a
+new IP Address everytime it connects to the router). This will end up causing conflicts with your BeagleBone, so its better to manually add your
+BeagleBone as a "special case".
+
+Login to your router (this can be done in various ways depending on your router, but chances are typing `192.168.1.1` into your browser will bring you to the login
+screen). You will usually find the DHCP settings under LAN. Once you hit your DHCP settings, you should have the option of setting some devices with
+a manual configuration. This will require you to grab your BeagleBone's MAC Address (`ifconfig -a`, and look for the `eth0` interface, sometimes labeled
+as HWAddress), and type the same static IP that you assigned above. 
+
+Once these settings are propagated through your router, you should be good to go. In the same webpage for logging into your router, you should be
+able to see your currently connected clients. You should be able to find your BeagleBone there with the IP Address you assigned. You may have to unplug
+and replug your BeagleBone's ethernet/power before you see anything.
+
+5) Dealing with a Local IP Address
