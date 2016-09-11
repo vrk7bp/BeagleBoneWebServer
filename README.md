@@ -224,6 +224,10 @@ All the instructions that I followed can be found here: http://elinux.org/Beagle
 	10) 'sudo reboot' to restart BeagleBone
 	11) 'sudo resize2fs /dev/mmcblk0p2' to have filesystem write to new parition
 
+Sometimes after this process, the resize2fs command comes back with a "Bad Magic Number" error. One alternative is to go back to the fdisk tool, and
+instead delete all paritions (1 and 2), and create a new partition with all the available space. After writing this to the disk and rebooting again,
+you should be able to run the resize2fs command with no problem.
+
 <b> Note: </b> I'm still in the process of figuring out the relationship between the 4 GB eMMC memory built into the BBB and the MicroSD card when
 booting from the MicroSD card. It seems as if the 4 GB eMMC memory isn't being used at all, but this doesn't conceptually make sense to me. I'll increase
 the partition size of the MicroSD card for now to fix my problem, and will investigate this further.
