@@ -187,6 +187,22 @@ you will have to go to your router to set this up. Its worth noting that not all
 up DDNS on every router is different, and therefore a web search will be useful. My router had a really clear option for setting things up, and it
 took less than 2 minutes (with 1 minute spent re-booting the router). 
 
+B) Setting up a URL to point to your DDNS URL
+
+Although it is easy to use the URL provided by the DDNS provider as your "go-to" URL, the one's provdied by the DDNS providers aren't always the "prettiest".
+Instead, you may find it useful to purchase a URL from a DNS provider such as GoDaddy or Namecheap. Once you've purchased a nicer URL, it is easy to
+configure this to point to your DDNS provided URL. I personally use Namecheap, so the instructions below are based on their UI, but the basics should
+extend to all DNS providers. You are basically setting up two CNAME Records...
+
+	1) Build one CNAME record based on your "root" host (this is represented by an '@' in Namecheap). For the host field, input an '@', and for the value, input your DDNS provided URL.
+	2) Build another CNAME record for the "www" subroot host. For the host filed, input a 'www', and for the value, put in your Namecheap purchased URL.
+
+And that's about it. After about 30 minutes, the amount of time it'll take for these records to propagate through, you should be able to type your purchased
+URL and hit your BeagleBone Black server!
+
+<b> Note: </b> This only works if the port-forwarding you setup in your router is for Port 80 (default port for http). These records don't allow entry
+of other ports, so if you ended up setting up your port-forwading on your router (the one that your router is listening to, not port its forwarding
+onto for the BBB) you'll have to change that before this'll work. 
 
 Thanks for reading folks! Hopefully this proves to be useful for some folks down the road. And if there are any improvements/updates you guys find, just submit a pull request
 and/or log an issue.
