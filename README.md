@@ -204,5 +204,29 @@ URL and hit your BeagleBone Black server!
 of other ports, so if you ended up setting up your port-forwading on your router (the one that your router is listening to, not port its forwarding
 onto for the BBB) you'll have to change that before this'll work. 
 
+C) Adding a larger partition to your MicroSD
+
+As I was playing around with my BeagleBone early on, I started running into a "No space left on device" error. After some investigation, it looks like
+the default partition for the MicroSD card if 4 GB, and since I'm bootin directly from the SDCard with a 4 GB image of the Debian OS, there isn't much
+room left to do other things. Since I'm using a 16 GB MicroSD card, I figured I would expand the size of the partition in the hopes of fixing this error.
+
+All the instructions that I followed can be found here: http://elinux.org/Beagleboard:Expanding_File_System_Partition_On_A_microSD. The instructions that I ran are:
+
+	1) sudo su (Switch to Root User)
+	2) fdisk /dev/mmcblk0 (Open fdisk program to manipulate SD Card partitions)
+	3) 'p' (Look at current partitions)
+	4) 'd' (Delete some partition, do this if you have more than one, deleting the second partition)
+	5) 'n' (Make a new partition)
+	6) 'p' (Make partition a primary partition)
+	7) '2' (Make this the second parition)
+	8) 'Enter' a couple of times for default settings (you can change the size of the parition here)
+	9) 'w' (Write partitions to SD Card)
+	10) 'sudo reboot' to restart BeagleBone
+	11) 'sudo resize2fs /dev/mmcblk0p2' to have filesystem write to new parition
+
+<b> Note: </b> I'm still in the process of figuring out the relationship between the 4 GB eMMC memory built into the BBB and the MicroSD card when
+booting from the MicroSD card. It seems as if the 4 GB eMMC memory isn't being used at all, but this doesn't conceptually make sense to me. I'll increase
+the partition size of the MicroSD card for now to fix my problem, and will investigate this further.
+
 Thanks for reading folks! Hopefully this proves to be useful for some folks down the road. And if there are any improvements/updates you guys find, just submit a pull request
 and/or log an issue.
