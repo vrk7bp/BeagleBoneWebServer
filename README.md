@@ -232,5 +232,32 @@ you should be able to run the resize2fs command with no problem.
 booting from the MicroSD card. It seems as if the 4 GB eMMC memory isn't being used at all, but this doesn't conceptually make sense to me. I'll increase
 the partition size of the MicroSD card for now to fix my problem, and will investigate this further.
 
+D) Resolving DNS Issues
+
+It looks like somewhere down the road, my DNS configuration got screwed up. This showed up in weird ways, but the most telling was the fact my use of 
+the `ping` command. Running `ping` with an IP Address (i.e. `ping 8.8.8.8`) worked fine while pinging with a URL did not (i.e. `ping google.com`). This
+made it pretty clear that my DNS settings were off. 
+
+This article proved to be very helpful for closing on my issues: https://wiki.debian.org/NetworkConfiguration#Defining_the_.28DNS.29_Nameservers.
+
+At some point while I was going through this whole process, it looks like my resolv.conf file go out of whack. I had tried making physical changes
+in the /etc/network/interfaces file that we played around with above, by adding a `nameservers 8.8.8.8` at the bottom of the eth0 interface description; but to no avail.
+I ended up changing this to `nameservers ROUTER.LOCAL.IP.ADDRESS` and saved the file.
+
+After some research, I found that Debian actually uses the resolv.conf file as the source of truth for DNS configuration. There is a program called
+resolvconf that usually takes care of proper configuration of this file (meaning you shouldn't have to touch it since your changes will eventually
+be overridden), but that wasn't working as well. What was funny was that I couldn't `sudo apt-get update resolvconf` since I couldn't resolve the URLs
+that were used to grab the relevant files.
+
+What I ended up doing was a two step process. I wasn't able to edit the existing resolv.conf file, so I deleted it (`sudo rm resolv.conf`) and created a
+new one (`sudo nano resolv.conf`) with the following simple entry: `nameserver 192.168.1.1`. I also ran `chmod 644 resolv.conf` as a pre-caution, in 
+order to ensure that all users had read permissions of the file. I then rebooted the BBB. When it came back, I was able to `ping google.com` successfully. Even though this solved the problem, it was a little fragile.
+
+In order to make this more resilient, I then went back and ran `sudo apt-get install resolvconf` in order to fix whatever was wrong before. After this
+was installed correctly, I rebooted one more time. `resolvconf` rebuilds the resolv.conf file based on multiple "data points" and is able to deal with
+multiple programs trying to reconfigure the DNS settings. One of these "data points" is the `/etc/network/interfaces file, where we already set the nameserver
+as the local IP Address of the router (which has its own forwarding mechanisms to DNS servers). By rebooting, we allowed `resolvconf` to build the
+`resolv.conf` file correctly.
+
 Thanks for reading folks! Hopefully this proves to be useful for some folks down the road. And if there are any improvements/updates you guys find, just submit a pull request
 and/or log an issue.
