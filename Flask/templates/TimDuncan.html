@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css"/>
+
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/static/font-awesome/css/font-awesome.min.css"/>
+    
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu|Lobster|Playfair+Display+SC' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/static/TimDuncan.css"/>
+
+    <title> Gautam's Website </title>
+
+    <link rel="shortcut icon" href="static/images/favicon.ico">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Code for the Header  ***Do Not Touch*** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand name-title" href="/" color="#FFFFFF"> <b> Gautam Kanumuru <i class="fa fa-child fa-lg"></i> </b>
+                </a>
+            </div>
+
+            <div class="text-container">
+                <div class="navbar-collapse collapse navbar-responsive-collapse nav-bar-menu"> 
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Me<b class="caret"></b></a>
+                            <ul class="dropdown-menu drop-down-items">
+                                <li><a href="http://github.com/vrk7bp">GitHub</a></li>
+                                <li><a href="http://www.linkedin.com/pub/gautam-kanumuru/61/931/7a3">LinkedIn</a></li>
+                                <li><a href="resume" target="_newtab">Resume</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#AboutMePage">About Gautam</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#AboutSitePage">About This Website</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#ProjectsPage">Projects </a>
+                        </li>
+
+                        <li>
+                            <a href="#PublicationsPage">Publications</a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> Contact </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- End the Header Bar -->
+
+    <!-- This is the content, which can be changed. Section 1... The text on image -->
+    <div class="container">
+      <br><br><br><br><br>
+        <div class="row-fluid page-title cursive-font">
+          <p class="text-center"><strong>Tim Duncan</strong></p>
+        </div>  
+    </div>
+    <div class="container">
+        <div class="row-fluid page-subtitle cursive-font">
+            <p class="text-center"><strong> Wake Up to Inspiration from Tim Duncan... </strong></p>
+        </div>
+    </div>
+    <!-- End Section 1... The text on image -->
+
+    <br><br>   
+
+
+    <!-- This is the content, which can be changed. Section 2... The text that makes up the content -->
+    <div id="page-content">
+        <div class="container"> 
+            <br>
+            <p class="text-center fancy-font">
+                <strong>
+                    “Good, better, best. Never let it rest. Until your good is better and your better is best.”
+                </strong>
+            </p>
+            <p class="text-center fancy-font">
+                <strong>
+                    - Tim Duncan
+                </strong>
+            </p>
+
+            <br>
+
+            <p> 
+                Inspired by the heroic 2014 NBA Finals win by the San Antonio Spurs. As a way to celebrate the win, and tease my Miami Heat friend, I decided to make an e-mail application that would send a different picture of Tim Duncan (as well as a random quote) to anyone who chose to sign up for the e-mail list. I used the <href a="https://developers.google.com/custom-search/" target="_newtab"> Custom Google Search API </href> and <href a="https://sendgrid.com/" target="_newtab"> SendGrid API </href>  to set this up, and am currently running on an AWS micro instance as a daily cronjob. The code for this application is available on <href a="http://github.com/vrk7bp/timduncaninspiration"> GitHub </href>. Feel free to use it on your own projects.
+
+                <br><br>
+
+                Insert your e-mail into the text box below and you will be added to the e-mail list. Once added, you will recieve the e-mails every morning.
+
+                <br><br>
+
+                <strong> Note: </strong> If you are redirected to the main page of my site, you have signed up correctly. If you are brought back to this Tim Duncan page, then the format of your e-mail address was incorrect.
+            </p> 
+
+            <br>
+
+            <form action="timduncansignup" method="POST">
+                    <input type="text" name="text" placeholder="email address" id="textBox">
+                    <input type="submit" name="my-form" value="Subscribe">
+            </form>
+
+            <br>
+
+            <p> 
+
+                <strong> To unsubscribe, simply put your e-mail into the text box below. </strong>
+
+            </p>
+
+            <br>
+
+            <form action="timduncanquit" method="POST">
+                    <input type="text" name="textQuit" placeholder="email address" id="textBox">
+                    <input type="submit" name="my-form-quit" value="Unsubscribe">
+            </form>
+
+            <br>
+        </div>
+    </div>
+
+    <!-- End Section 2... The text on image  **No more changeable content** -->
+
+    <!-- Code for the Footer ***Do Not Touch*** -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-center text-mute"> 
+            <strong> 
+                Website's code found in <a href="http://www.github.com/vrk7bp/gautamwebsite"> my GitHub Repository</a>.
+            </strong> 
+
+        </p>
+      </div>
+    </div>
+    <!-- End the Footer -->
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- CDN for Bootstrap JavaScript-->
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

@@ -251,7 +251,7 @@ that were used to grab the relevant files.
 
 What I ended up doing was a two step process. I wasn't able to edit the existing resolv.conf file, so I deleted it (`sudo rm resolv.conf`) and created a
 new one (`sudo nano resolv.conf`) with the following simple entry: `nameserver 192.168.1.1`. I also ran `chmod 644 resolv.conf` as a pre-caution, in 
-order to ensure that all users had read permissions of the file. I then rebooted the BBB. When it came back, I was able to `ping google.com` successfully. Even though this solved the problem, it was a little fragile.
+order to ensure that all users had read permissions of the file. After this, I was able to `ping google.com` successfully. Even though this solved the problem, it was a little fragile.
 
 In order to make this more resilient, I then went back and ran `sudo apt-get install resolvconf` in order to fix whatever was wrong before. After this
 was installed correctly, I rebooted one more time. `resolvconf` rebuilds the resolv.conf file based on multiple "data points" and is able to deal with

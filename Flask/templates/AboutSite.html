@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css"/>
+
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/static/font-awesome/css/font-awesome.min.css"/>
+    
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu|Lobster|Playfair+Display+SC' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/static/AboutSite.css"/>
+
+    <title> Gautam's Website </title>
+
+    <link rel="shortcut icon" href="static/images/favicon.ico">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Code for the Header  ***Do Not Touch*** -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand name-title" href="/" color="#FFFFFF"> <b> Gautam Kanumuru <i class="fa fa-child fa-lg"></i> </b>
+                </a>
+            </div>
+
+            <div class="text-container">
+                <div class="navbar-collapse collapse navbar-responsive-collapse nav-bar-menu"> 
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Me<b class="caret"></b></a>
+                            <ul class="dropdown-menu drop-down-items">
+                                <li><a href="http://github.com/vrk7bp">GitHub</a></li>
+                                <li><a href="http://www.linkedin.com/pub/gautam-kanumuru/61/931/7a3">LinkedIn</a></li>
+                                <li><a href="resume" target="_newtab">Resume</a></li>
+                                <li class="divider"></li>
+                                <li><a href="aboutme">About Gautam</a></li>
+                                <li class="divider"></li>
+                                <li><a href="aboutsite">About This Website</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="projects">Projects </a>
+                        </li>
+
+                        <li>
+                            <a href="pubs">Publications</a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> Contact </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- End the Header Bar -->
+
+    <!-- This is the content, which can be changed. Section 1... The text on image -->
+    <div class="container">
+      <br><br><br><br><br>
+        <div class="row-fluid page-title cursive-font">
+          <p class="text-center"><strong>About The Site</strong></p>
+        </div>  
+    </div>
+    <div class="container">
+        <div class="row-fluid page-subtitle cursive-font">
+            <p class="text-center"><strong> So what's under the hood... </strong></p>
+        </div>
+    </div>
+    <!-- End Section 1... The text on image -->
+
+    <br><br>   
+
+
+    <!-- This is the content, which can be changed. Section 2... The text that makes up the content -->
+    <div id="page-content">
+        <div class="container"> 
+            <br>
+            <p class="text-center fancy-font">
+                <strong>
+                    "Success is a journey, not a destination. The doing is often more important than the outcome."
+                </strong>
+            </p>
+            <p class="text-center fancy-font">
+                <strong>
+                    - Arthur Ashe
+                </strong>
+            </p>
+
+            <br>
+
+            <p> 
+                If you haven't seen it already, the code for this site can be found <a href="http://www.github.com/vrk7bp/gautamwebsite"> here</a>. This site is built using a Python Framework called <a href="http://flask.pocoo.org/" target="_newtab"> Flask</a>. For anyone wanting to build their own site from scratch, I highly recommend using Flask. It is extremely easy to use and very intuitive. From a server standpoint, this site is running on Google App Engine. Although the App Engine documentation makes it sound like it is very easy to run a Flask webserver on their machines, I did not find this to be the case. I spent many hours trying to figure out how to run Flask on Google's platform, and even considered jumping to Amazon Web Services a couple of times. One of the biggest problems is that unless the 3rd party application you want to use <a href="https://developers.google.com/appengine/docs/python/tools/libraries27" target="_newtab"> is on this list</a>, you have to physically download these files and put them in the right hierarchy among your other folders and files related to the project. This got especially annoying with Flask, because Flask is built on other un-supported 3rd party libraries such as werkzeug and jinja2. Eventually I was able to get the web server working, then it was a matter of figuring out the HTML and CSS. For those of you who aren't interested in learning how to use Flask with Google App Engine, or don't want to deal with a webserver at all, I recommend looking into <a href="https://pages.github.com/" target="_newtab"> GitHub Pages</a>. GitHub Pages is perfect for those people who are more worried about the HTML, CSS, and JavaScript because it abstracts away the Web Server.
+            </p>
+            <p>
+                Based upon the troubles I had, and the amount of searching I had to do to find the right answers, I figured it would be worthwhile to create a step-by-step tutorial on how to build a Flask webserver on App Engine. Although there are ready-to-go GitHub repositories that you can simply fork and use, I did not find this as satisfying as figuring it out myself. There were a couple of solutions I happened on that turned out to be outdated, and it became hard trying to figure out what was old information from new. My goal will be to have step by step instructions, as well as explanations as to what you are doing, for building a Flask web server on Google App Engine. I will also throw in some explanations on how to get your own personal URL for the site (I used NameCheap), and how to link the code you deploy to App Engine to GitHub so you can push to both at the same time. This will all be under the pre-tense of building your own personal website. Stay tuned...
+            </p>
+            <p>
+                So why did I build this site? The more and more I have gotten into programming, the quicker I have realized that I learn by doing. There is only so much I can get out of reading a tutorial or typing some lines on Codecademy (not that I dislike Codecademy, I love the site and visit it often). At some point you just have to really dive in. This site was my version of diving into web development. I had learned about building a basic web server and the power of Flask before, but I had absolutely no knowledge of building websites and figured this would be the perfect opportunity to learn. Throw in the fact that I learned a bit about Google App Engine, and I would say that it was an overall great experience that was well worth while. 
+            </p>
+            <p>
+                The other reason I built this site is because every legitimate, boss programmer has his or her own website. And I was ready to become a boss programmer.
+            </p>
+            <p>
+                If you are working on building your own website and have any questions, feel free to <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> shoot me an e-mail</a>. I can't guarantee that I will have an answer, but I would love to try and help.
+            </p>
+            <br>
+        </div>
+    </div>
+
+    <!-- End Section 2... The text on image  **No more changeable content** -->
+
+    <!-- Code for the Footer ***Do Not Touch*** -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-center text-mute"> 
+            <strong> 
+                Website's code found in <a href="http://www.github.com/vrk7bp/gautamwebsite"> my GitHub Repository</a>.
+            </strong> 
+
+        </p>
+      </div>
+    </div>
+    <!-- End the Footer -->
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- CDN for Bootstrap JavaScript-->
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,220 @@
+/* General Body CSS */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: url('/static/images/TimDuncan.jpg') no-repeat center center fixed; /* The image can be changed... */
+  background-position: 0px -230px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:#fff;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/* End of general body CSS */
+
+/*************************** This box is where CSS cane be changed from page to page *******************************/
+
+.page-title {
+	font-size:700%;
+}
+
+.page-subtitle {
+	font-size:250%;
+}
+
+#textBox {
+  color: #000000
+}
+
+/*************************** End changeable box *******************************/
+
+/* Font CSS */
+.cursive-font {
+	font-family: 'Lobster', cursive;
+}
+
+.fancy-font {
+	font-family: 'Playfair Display SC', serif;
+}
+
+.main-font {
+	font-family: 'Ubuntu', sans-serif;
+}
+/* Font CSS */
+
+
+/*CSS for the white box that holds most of the content */
+#page-content {
+	background-color: #ffffff;
+	height: auto;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 150%;
+}
+
+#page-content p {
+	color: #000000;
+}
+
+#page-content p a {
+  color: #809aa2;
+}
+
+#page-content p a:active {
+  color: #809aa2;
+}
+
+#page-content p a:hover {
+  color: #809aa2;
+}
+
+#page-content p a:link {
+  color: #809aa2;
+}
+
+#page-content p a:visited {
+  color: #809aa2;
+}
+/* End Page Content CSS */
+
+/* CSS for the Footer */
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #809aa2;
+}
+
+#footer p {
+  padding-top: 20px;
+  color: #ffffff;
+}
+
+#footer p a:visited {
+  color: #000000;
+}
+
+#footer p a:hover {
+  color: #000000;
+}
+
+#footer p a:link {
+  color: #000000;
+}
+
+#footer p a:active {
+  color: #000000;
+}
+
+/*End footer CSS */
+
+/* NavBar css */
+
+.text-container {
+  padding-top: 0px;
+  padding-bottom: 1px;
+}
+
+.name-title {
+  color:#343433; 
+  font-weight:200; 
+  font-size:150%; 
+}
+
+.nav-bar-menu a {
+  font-size: 125%
+}
+
+.drop-down-items a {
+  font-size: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #000000;
+  font-family: 'Ubuntu', sans-serif;
+}
+.navbar-default .navbar-brand {
+  color: #809aa2;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #000000;
+}
+.navbar-default .navbar-text {
+  color: #809aa2;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #809aa2;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #000000;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #000000;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #000000;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle {
+  border-color: #ffffff;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #809aa2;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #809aa2;
+}
+.navbar-default .navbar-link {
+  color: #809aa2;
+}
+.navbar-default .navbar-link:hover {
+  color: #000000;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #809aa2;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #000000;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #000000;
+    background-color: #ffffff;
+  }
+}
+
+/* End of NavBar css */
+
+/* CSS for the three link icons on the homepage */
+.link-icons {
+	color: #809aa2;
+}
+
+.icon-active-highlight a:hover {
+  color: #000000;
+}
+
+.icon-active-highlight a:active {
+  color: #000000;
+}
+/* End of icon CSS */
