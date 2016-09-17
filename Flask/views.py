@@ -1,11 +1,8 @@
-"""
-Routes and views for the flask application.
-"""
-
+from flask import Flask
 from datetime import datetime
 from flask import render_template
 from flask import redirect
-from FlaskWebProject import app
+app = Flask(__name__)
 
 @app.route('/')
 @app.route('/home')
@@ -51,3 +48,6 @@ def page_not_found(e):
 def page_not_found(e):
     """Custom 500 Page."""
     return render_template('500Error.html'), 500
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
