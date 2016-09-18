@@ -75,7 +75,7 @@
                         </li>
 
                         <li>
-                            <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> Contact </a>
+                            <a href="mailto:gautamkawebsite@gmail.com?Subject=Website%20Hello"> Contact </a>
                         </li>
                     </ul>
 
@@ -209,21 +209,41 @@
                 <div class="row-fluid">
                     <div class="offsetHalf block" id="hacker-feed">
                       <div class="text-center">
-                        <h1>HackerFeed, Hacker News Reader Application</h1>
+                        <h1>BeagleBone, My own server</h1>
                         <h3> Current, [Independent Project]</h3>
+
+                        <div class="text-left" id="content-color">
+                            <p>
+                                After some frustrations hosting my website on Google App Engine and Azure, I decided that I would build my own web server. What was meant to be a quick one day project ended up growing into something much larger because there was so much to do and even more to learn. Early on, I decided to document my "adventure" in setting this up so that it could be a reference for me, and hopefully help others later on.
+                            </p>
+
+                            <p>
+                                This project is going to be a constant work in progress because I plan to keep adding functionality to my server, as well as keep it as a "test harness" for any small projects that I work on that need a web backend.
+                            </p>
+
+                            <br>
+                        </div>
+                        <a href="https://github.com/vrk7bp/beaglebonewebserver"> <button class="btn btn-primary btn-flat">"Setup" Repo<i class="pull-right icon-chevron-right icon-large"></i></button> </a>
+			<p></p>
+                        <p></p>
+                      </div>
+                    </div>
+                </div>
+
+                <br>
+
+                    <div class="offsetHalf block" id="hacker-feed">
+                      <div class="text-center">
+                        <h1>HackerFeed, Hacker News Reader Application</h1>
+                        <h3> Fall 2014, [Independent Project]</h3>
 
                         <div class="text-left" id="content-color">
                             <p>
                                 There isn't a day that goes by where I haven't checked <a href="https://news.ycombinator.com/" target="_newtab"> Hacker News</a> atleast four to five times. But I don't always go through all of the top articles of the day, and instead find myself picking articles that are more related to topics such as Cloud Computing and entrepreneurship. This was the inspiration for HackerFeed. Along with two of my friends, <a href="http://github.com/mantazer" target="_newtab"> Muntaser</a> and <a href="https://github.com/a-beck" target="_newtab"> Andrew</a>, we decided to create a Hacker News reader application that would take into account the articles that you have read in order to reorganize the typical ordered feed coming from Hacker News directly.
                             </p>
-
-                            <p>
-                                This project is still a work in progress, so the repository isn't public and I won't go into detail about how it works. If you have any questions about the application, or want to see if you can help, feel free to <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> e-mail me</a>.
-                            </p>
-
-                            <br>
+                        <br>
                         </div>
-                        <h2> Link to come... </h2>
+                        <a href="https://github.com/mantazer/Project-Pulsar/"> <button class="btn btn-primary btn-flat">GitHub Repo<i class="pull-right icon-chevron-right icon-large"></i></button> </a>
                         <p></p>
                         <p></p>
                       </div>
@@ -248,7 +268,7 @@
                             </p>
 
                             <p>
-                                If you are interested in finding out more about the project, feel free to shoot me an <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> e-mail </a>.
+                                If you are interested in finding out more about the project, feel free to shoot me an <a href="mailto:gautamkawebsite@gmail.com?Subject=Website%20Hello"> e-mail </a>.
                             </p>
 
                         </div>
@@ -275,7 +295,7 @@
                             </p>
 
                             <p>
-                                The code for this project is relatively simple (not more than 100 actual lines of code), and setting up a Cron Job on an AWS instance can be done in less than a minute. If you have any questions about the project, feel free to <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> e-mail me</a>.
+                                The code for this project is relatively simple (not more than 100 actual lines of code), and setting up a Cron Job on an AWS instance can be done in less than a minute. If you have any questions about the project, feel free to <a href="mailto:gautamkawebsite@gmail.com?Subject=Website%20Hello"> e-mail me</a>.
                             </p>
 
                         </div>
@@ -300,7 +320,7 @@
                             </p>
 
 							<p>
-								Sometime around Spring 2016, I moved the backend for my website from Google App Engine to Microsoft Azure. This proved to be a surprisingly easy transition. Although there are slight variations in the structure of the repositories, the core content is essentially the same (still the same Flask Server, HTML/CSS pages, et cetera).
+								Sometime around Spring 2016, I moved the backend for my website from Google App Engine to Microsoft Azure; which proved to be a surprisingly easy transition. Although there were slight variations in the structure of the repositories, the core content was kept the same (still the same Flask Server, HTML/CSS pages, et cetera). Then in Fall of 2016, I decided I would save a little money and build my own local web server using a BeagleBone Black.
 							</p>
 
                             <p>
@@ -311,7 +331,8 @@
                         </div>
                         <a href="https://github.com/vrk7bp/GautamWebsite"> <button class="btn btn-primary btn-flat">GAE GitHub Repo<i class="pull-right icon-chevron-right icon-large"></i></button> </a>
                         <a href="https://github.com/vrk7bp/GautamAzureWebsite"> <button class="btn btn-primary btn-flat">Azure GitHub Repo<i class="pull-right icon-chevron-right icon-large"></i></button> </a>
-						<p></p>
+                        <a href="https://github.com/vrk7bp/BeagleBoneWebServer"> <button class="btn btn-primary btn-flat">BeagleBone GitHub Repo<i class="pull-right icon-chevron-right icon-large"></i></button> </a>
+			<p></p>
                         <p></p>
                       </div>
                     </div>
@@ -329,11 +350,6 @@
                             <p>
                                 The problem statement here was pretty simple. Using Python, we were tasked with creating our own rudimentary version of DropBox. The problem can be broken down into two separate sections, the client side which has to recognize file changes and "ping" the server accordingly and the server side which has to take into account these changes and update the other synchronized users accordingly. For the client side, we used the Python framework <a href="https://pypi.python.org/pypi/watchdog" target="_newtab"> WatchDog</a> in order to monitor files. WatchDog is extremely easy to use, providing you the ability to trigger events based on the file activity that happened (for example, you can have a different event triggered if a file is created versus deleted). On the sever side, we built a <a href="http://flask.pocoo.org/" target="_newtab"> Flask web server</a> (very easy to use) and utilized its file transfer libraries to retrieve the updated files. At a basic level, we had each triggered WatchDog event hit a different endpoint of the Flask webserver so that the server could act accordingly. We also had another thread working in the background monitoring the server in case changes happen on another client's end (so that all machines that are accessing the server are updated). The Flask server was run on an AWS micro-instance.
                             </p>
-
-                            <p>
-                                Unfortunately, because of a bad group experience, I ended up doing 95% of the coding for this project (highlighted by <a href="https://github.com/vrk7bp/OneDir/graphs/contributors"> this graph</a>). Even though it wasn't the most ideal situation, especially during crunch time at the end of the semester, I really learned a lot from the project as a whole. With my experience building this OneDir system from back to front, I got comfortable being uncomfortable (picking up new libraries and frameworks that I knew nothing about).
-                            </p>
-
                             <br>
                         </div>
                         <a href="https://github.com/vrk7bp/OneDir"> <button class="btn btn-primary btn-flat">GitHub Repo<i class="pull-right icon-chevron-right icon-large"></i></button> </a>
@@ -408,7 +424,7 @@
 
                             <p> On the programming end, the entire project was built in JAVA. Our toy was a Geography Toy that asked questions related to continents for students to answer. The students could physically select a continent by moving an arrow over what they believed the answer was (we coordinated with RFID tags in order to realize which continent was currently selected). A GUI with a picture of the World Map, the question, and the player's points was shown on a computer screen. As the student answered questions, the questions generated would be adjusted based on the percieved level of the student. We also introduced a rudimentary tracking mechanism to give teachers more data when lesson planning. </p>
 
-                            <p> Unfortunately, I did not know the magic of GitHub or the importance of neat code at this point in my coding career. So the code is really hard to follow. If you have any questions about the code, feel free to <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> e-mail me</a>. </p>
+                            <p> Unfortunately, I did not know the magic of GitHub or the importance of neat code at this point in my coding career. So the code is really hard to follow. If you have any questions about the code, feel free to <a href="mailto:gautamkawebsite@gmail.com?Subject=Website%20Hello"> e-mail me</a>. </p>
                             <br>
                         </div>
                         <a href="https://github.com/vrk7bp/GeographyToyCode"> <button class="btn btn-primary btn-flat">GitHub Repo<i class="pull-right icon-chevron-right icon-large"></i></button> </a>
@@ -634,13 +650,16 @@
                 <br>
 
                 <p> 
-                    If you haven't seen it already, the code for this site can be found <a href="http://www.github.com/vrk7bp/gautamazurewebsite"> here</a>. This site is built using a Python Framework called <a href="http://flask.pocoo.org/" target="_newtab"> Flask </a>. For anyone wanting to build their own site from scratch, I highly recommend using Flask. It is extremely easy to use and very intuitive. 
+                    If you haven't seen it already, the code for this site can be found <a href="http://www.github.com/vrk7bp/beaglebonewebserver"> here</a>. This site is built using a Python Framework called <a href="http://flask.pocoo.org/" target="_newtab"> Flask </a>. For anyone wanting to build their own site from scratch, I highly recommend using Flask. It is extremely easy to use and very intuitive. 
 				</p>
 				<p>				
-					From a server standpoint, this site is running on Microsoft Azure. The <a href="http://www.github.com/vrk7bp/gautamwebsite"> original version of the site </a>  was hosted on Google App Engine, which proved to be a pain. Although the App Engine documentation makes it sound like it is very easy to run a Flask webserver on their machines, I did not find this to be the case. I spent many hours trying to figure out how to run Flask on Google's platform, and even considered jumping to Amazon Web Services a couple of times. One of the biggest problems is that unless the 3rd party application you want to use <a href="https://developers.google.com/appengine/docs/python/tools/libraries27" target="_newtab"> are on this list</a>, you have to physically download these files and put them in the right hierarchy among your other folders and files related to the project. This got especially annoying with Flask, because Flask is built on other un-supported 3rd party libraries such as werkzeug and jinja2. I was eventually able to get the web server working. 
+					From a server standpoint, this site is running on a local server I setup myself. The <a href="http://www.github.com/vrk7bp/gautamwebsite"> original version of the site </a>  was hosted on Google App Engine, which proved to be a pain. Although the App Engine documentation makes it sound like it is very easy to run a Flask webserver on their machines, I did not find this to be the case. I spent many hours trying to figure out how to run Flask on Google's platform, and even considered jumping to Amazon Web Services a couple of times. One of the biggest problems is that unless the 3rd party application you want to use <a href="https://cloud.google.com/appengine/docs/python/tools/built-in-libraries-27" target="_newtab"> is on this list</a>, you have to physically download the necessary files and put them in the right hierarchy among your other folders and files related to the project. This got especially annoying with Flask, because Flask is built on other un-supported 3rd party libraries such as werkzeug and jinja2. 
                 </p>
 				<p>
 					In the Spring of 2016, I decided to move to a Microsoft Azure backend. This proved to be relatively easy, especially because of Azure App Service's built in support for Flask. Following <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-python-create-deploy-flask-app/"> this page </a> proved to be all I really needed. I also setup my Azure instance to have <a href="https://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/"> Push-To-Deploy support </a> from my GitHub repo, making my life even easier.
+				</p>
+				<p>
+					In the Fall of 2016, I made yet another pivot and built my own local server using a BeagleBone Black. Although a long process, I ended up learning a lot while also saving a little bit of money in the long-term. I plan on using this server beyond hosting my website, using it as my remote Dev Machine as well as a host for any other small projects I work on that prove to need a web server. The process I went through to build this can be found <a href="http://github.com/vrk7bp/beaglebonewebserver"> here. </a>
 				</p>
 				<p>
 					For those of you who aren't interested in learning how to build and host a backend websever, I recommend looking into <a href="https://pages.github.com/" target="_newtab"> GitHub Pages</a>. GitHub Pages is perfect for those people who are more worried about the HTML, CSS, and JavaScript because it abstracts away the Web Server.
@@ -649,7 +668,7 @@
                     So why did I build this site? The more and more I have gotten into programming, the quicker I have realized that I learn by doing. There is only so much I can get out of reading a tutorial or typing some lines on Codecademy. At some point you just have to really dive in. This site was my version of diving into web development. I had learned about building a basic web server and the power of Flask before, but I had absolutely no knowledge of building websites and figured this would be the perfect opportunity to learn. Throw in the fact that I learned a bit about using various cloud providers, and I would say that it was an overall great experience that was well worth while. 
                 </p>
                 <p>
-                    If you are working on building your own website and have any questions, feel free to <a href="mailto:gautamkwebsite@gmail.com?Subject=Website%20Hello"> shoot me an e-mail</a>.
+                    If you are working on building your own website and have any questions, feel free to <a href="mailto:gautamkawebsite@gmail.com?Subject=Website%20Hello"> shoot me an e-mail</a>.
                 </p>
                 <br>
             </div>
@@ -664,8 +683,8 @@
     <div id="footer">
       <div class="container">
         <p class="text-center text-mute"> 
-            <strong> 
-                Website's code found in <a href="http://www.github.com/vrk7bp/gautamazurewebsite"> my GitHub Repository</a>.
+            <strong>
+                Website's code found in <a href="http://www.github.com/vrk7bp/beaglebonewebserver"> my GitHub Repository</a>.
             </strong> 
 
         </p>
