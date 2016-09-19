@@ -85,7 +85,7 @@ I'd be happy to research them/implement them on this Debian image.
 
 3) Add Web Server to BeagleBone
 
-After exploring a couple of tutorials, it looked like the lighttpd web server was the best option for my BeagleBone Black. Unlike Apache, lighttpd
+After exploring a couple of tutorials, it looked like the nginx web server was the best option for my BeagleBone Black. Unlike Apache, nginx
 is an asynchronous server, meaning that it is event-driven and handles requests with a limited amount of threads. Although my super simple server
 is unlikely to hit massive loads, this asynchronous server tends to do better under high-load situations.
 
@@ -103,9 +103,8 @@ and second it frees up ports that are needed for the web server to run. The foll
 	h) systemctl disable mpd.service
 	i) shutdown -r now (this command restarts the Beaglebone in order to activate the service disables)
 
-After the BeagleBone is back on, you're ready to grab the lighttpd web-server. Simply run 'sudo apt-get install lighttpd' to get the web-server on
-your BeagleBone. If you run '/var/www' you will find the default web-page for the server. Navigating to the IP Address of your BeagleBone (which you
-can grab using 'ip addr show') in any broswer on your local network should navigate to this web page.
+After the BeagleBone is back on, you're ready to grab the nginx web-server. Simply run 'sudo apt-get install nginx' to get the web-server on
+your BeagleBone. Navigating to the IP Address of your BeagleBone (which you can grab using 'ip addr show') in any broswer on your local network should navigate to this web page.
 
 4) Setting a Static IP Address for the BeagleBone
 
@@ -258,6 +257,28 @@ was installed correctly, I rebooted one more time. `resolvconf` rebuilds the res
 multiple programs trying to reconfigure the DNS settings. One of these "data points" is the `/etc/network/interfaces file, where we already set the nameserver
 as the local IP Address of the router (which has its own forwarding mechanisms to DNS servers). By rebooting, we allowed `resolvconf` to build the
 `resolv.conf` file correctly.
+
+E) Connecting the nginx web server with my Flask web framework using uWSGI
+
+The main blog post that I used to figure this stuff out is here: https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
+
+At a high level, what we are doing is abstracting the process of serving web requests from the computation/logic that generates the information that is meant to be served.
+In the world of personal websites, this is probably overkill. Unless you're someone famous whose website gets lots of hits a day, this segmentation in logic probably isn't necessary.
+You could just as easily use the built-in web server used by Flask to serve your website on Port 80, even though it isn't the most robust/powerful.
+
+After following along with the blog post, you've essentially created an environment where your web server is segmented from your application server
+(even though technically they're running on the same physical hardware). The nginx web server will recieve the request from the browser, and then forward the
+necessary information to the uWSGI server. This uWSGI server, which already has a hook into your Flask web framework, will then service the request before
+returning it back to the nginx server which returns the result back to the browser. 
+
+A couple of notes about the blog post:
+
+	1) Make sure that you're following instructions for Ubuntu 16.04, not 14.04, as 16.04 is closer in line with the new versions of Debian.
+	2) Based on your file structure, you might have to make some adjustments to your import calls in your flask server and WSGI entry point.
+		2a) Keep in mind that python looks only in your current directory on `import` calls, so you may have to insert a special path in via `sys.path.append`
+	3) The blog post doesn't mention how to add a virtualenv to the wsgi.ini file. Simply add `venv=/path/to/virtual/environment`
+	4) When creating the systemd service unit file, make sure that your values for `WorkingDirectory`, `Environment`, and `ExecStart` all start from your `home` path (as if you just ran `cd ~`).
+	5) After configuring nginx to access your uWSGI file to service requests, and running the `sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled`, you'll probably have to delete the `default` entry in `/etc/nginx/sites-enabled` if its there.
 
 Thanks for reading folks! Hopefully this proves to be useful for some folks down the road. And if there are any improvements/updates you guys find, just submit a pull request
 and/or log an issue.
