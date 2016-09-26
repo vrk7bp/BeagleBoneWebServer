@@ -3,3 +3,4 @@ venv/
 wsgi.py
 wsgi.ini
 ToDo
+logs.log
